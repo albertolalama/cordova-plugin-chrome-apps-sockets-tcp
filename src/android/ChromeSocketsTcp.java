@@ -86,19 +86,19 @@ public class ChromeSocketsTcp extends CordovaPlugin {
     return true;
   }
 
-  @Override
-  public void onDestroy() {
-    super.onDestroy();
-    closeAllSockets();
-    stopSelectorThread();
-  }
+  // @Override
+  // public void onDestroy() {
+  //   super.onDestroy();
+  //   closeAllSockets();
+  //   stopSelectorThread();
+  // }
 
-  @Override
-  public void onReset() {
-    super.onReset();
-    closeAllSockets();
-    stopSelectorThread();
-  }
+  // @Override
+  // public void onReset() {
+  //   super.onReset();
+  //   closeAllSockets();
+  //   stopSelectorThread();
+  // }
 
   private JSONObject buildErrorInfo(int code, String message) {
 
@@ -229,7 +229,7 @@ public class ChromeSocketsTcp extends CordovaPlugin {
     final int peerPort = args.getInt(2);
 
     final TcpSocket socket = sockets.get(Integer.valueOf(socketId));
-    
+
     cordova.getThreadPool().execute(new Runnable() {
       public void run() {
         if (socket == null) {
